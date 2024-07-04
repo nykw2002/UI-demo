@@ -60,7 +60,7 @@ def create_message_box(role, message, icon_path):
             """,
             unsafe_allow_html=True
         )
-        time.sleep(0.1)  # Increased typing speed
+        time.sleep(0.05)  # Typing speed of 50 milliseconds per character
 
 # Function to get base64 encoded image
 def get_image_base64(image_path):
@@ -144,17 +144,16 @@ if 'df' not in st.session_state:
 
 # Sidebar
 with st.sidebar:
-    st.markdown('<h1 style="color: white;"></h1>', unsafe_allow_html=True)
+    st.markdown('<h1 style="color: white;">Menu</h1>', unsafe_allow_html=True)
     st.markdown('<p style="color: white;">📚 Baza interna documente</p>', unsafe_allow_html=True)
-    uploaded_files = st.file_uploader("", accept_multiple_files=True, key="file_uploader")
+    uploaded_files = st.file_uploader("Upload files", accept_multiple_files=True, key="file_uploader")
     if uploaded_files:
         st.markdown(f'<p style="color: white;">{len(uploaded_files)} file(s) added successfully!</p>', unsafe_allow_html=True)
         for file in uploaded_files:
             st.markdown(f'<p style="color: white;">Added: {file.name}</p>', unsafe_allow_html=True)
 
-    st.markdown('<h1 style="color: white;"></h1>', unsafe_allow_html=True)
     st.markdown('<p style="color: white;">📂 Adauga fisiere pentru autocompletare</p>', unsafe_allow_html=True)
-    uploaded_files_temp = st.file_uploader("", accept_multiple_files=True, key="file_uploader_temp")
+    uploaded_files_temp = st.file_uploader("Upload temp files", accept_multiple_files=True, key="file_uploader_temp")
     if uploaded_files_temp:
         st.markdown(f'<p style="color: white;">{len(uploaded_files_temp)} file(s) added successfully!</p>', unsafe_allow_html=True)
         for file in uploaded_files_temp:
