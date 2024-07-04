@@ -20,7 +20,7 @@ def generate_pastel_color():
 # Function to display PDF preview
 def display_pdf(pdf_path):
     try:
-        st.write(f"PDF: {pdf_path.split('\\')[-1]}")
+        st.write(f"PDF: {pdf_path.split('/')[-1]}")
         st.markdown(f'<iframe src="data:application/pdf;base64,{base64.b64encode(open(pdf_path, "rb").read()).decode()}" width="100%" height="800" type="application/pdf"></iframe>', unsafe_allow_html=True)
     except Exception as e:
         st.error(f"Error reading PDF: {str(e)}")
@@ -134,11 +134,11 @@ def set_background(image_file):
     )
 
 # Set the background
-set_background("C:\\Users\\vasil\\Desktop\\UI-Files_crewai\\white-paper-texture_1194-5306.jpg")
+set_background("white-paper-texture_1194-5306.jpg")
 
 # Initialize session state for graph data
 if 'df' not in st.session_state:
-    csv_path = "C:\\Users\\vasil\\Desktop\\UI-Files_crewai\\pdf3.csv"
+    csv_path = "pdf3.csv"
     st.session_state.df = pd.read_csv(csv_path, skiprows=1)  # Skip the first row as it's a title
     st.session_state.edited_df = st.session_state.df.copy()
 
@@ -184,7 +184,7 @@ with col1:
         st.markdown(
             f"""
             <div style="background-color: {user_color}; border-radius: 15px; padding: 15px; margin-bottom: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); min-height: 120px;">
-                <img src="data:image/png;base64,{get_image_base64('C:\\Users\\vasil\\Desktop\\UI-Files_crewai\\logistica-fill.png')}" style="width:80px; height:100px; float:left; margin-right:15px; border-radius: 50%; object-fit: cover;">
+                <img src="data:image/png;base64,{get_image_base64('logistica-fill.png')}" style="width:80px; height:100px; float:left; margin-right:15px; border-radius: 50%; object-fit: cover;">
                 <div style="margin-left: 115px; color: black;">
                     <strong style="font-size: 18px;">You</strong><br>
                     <span style="font-size: 16px;">{user_input}</span>
@@ -201,6 +201,16 @@ with col1:
         # AI team responses with icons
         responses = [
             ("Agent Management", "Thank you for your input. I'll coordinate with the team to address your request.", "C:\\Users\\vasil\\Desktop\\UI-Files_crewai\\manager-fill.png"),
+            ("AI Researcher", "Based on recent advancements, we can implement a transformer-based model for this task.", "C:\\Users\\vasil\\Desktop\\UI-Files_crewai\\scrape-fill.png"),
+            ("Software Developer", "I'll start working on a prototype using PyTorch. We should have a working model soon.", "C:\\Users\\vasil\\Desktop\\UI-Files_crewai\\suport-fill.png"),
+            ("Technical Writer", "I'll begin drafting the documentation for our new model, including its architecture and usage instructions.", "C:\\Users\\vasil\\Desktop\\UI-Files_crewai\\marketing-fill.png"),
+            ("Agent Management", "Excellent progress, team. Let's schedule a review meeting to discuss the prototype.", "C:\\Users\\vasil\\Desktop\\UI-Files_crewai\\manager-fill.png"),
+            ("AI Researcher", "I've completed the initial analysis. The model shows promising results in early tests.", "C:\\Users\\vasil\\Desktop\\UI-Files_crewai\\scrape-fill.png"),
+            ("Software Developer", "The prototype is ready for testing. I've implemented the core functionalities as discussed.", "C:\\Users\\vasil\\Desktop\\UI-Files_crewai\\suport-fill.png"),
+            ("Technical Writer", "The first draft of the documentation is complete. I'll need input from the team for technical details.", "C:\\Users\\vasil\\Desktop\\UI-Files_crewai\\marketing-fill.png"),
+            ("Agent Management", "Great work, everyone. Let's prepare for a client presentation next week.", "C:\\Users\\vasil\\Desktop\\UI-Files_crewai\\manager-fill.png"),
+            ("AI Researcher", "I've optimized the model further. We're seeing a 15% improvement in performance.", "C:\\Users\\vasil\\Desktop\\UI-Files_crewai\\scrape-fill.png"),
+            ("Software Developer", "I've addressed the feedback from testing. The model is now more robust and efficient.", "C:\\Users\\vasil\\Desktop\\UI-Files_crewai\\suport-fill.png")
         ]
         
         for role, message, icon_path in responses:
@@ -214,9 +224,9 @@ with col1:
 
         # Excel file previews
         excel_files = [
-            "C:\\Users\\vasil\\Desktop\\UI-Files_crewai\\pdf1.csv",
-            "C:\\Users\\vasil\\Desktop\\UI-Files_crewai\\pdf2.csv",
-            "C:\\Users\\vasil\\Desktop\\UI-Files_crewai\\pdf3.csv"
+            "pdf1.csv",
+            "pdf2.csv",
+            "pdf3.csv"
         ]
 
         for i, excel_path in enumerate(excel_files, 1):
@@ -268,11 +278,11 @@ with col1:
         # PDF files
         st.subheader("📄 PDF Reports")
         pdf_files = [
-            "C:\\Users\\vasil\\Desktop\\UI-Files_crewai\\3.Declaratie-privind-eligibilitatea-societatii-in-vederea-acordarii-ajutorului-de-minimis.pdf",
-            "C:\\Users\\vasil\\Desktop\\UI-Files_crewai\\AIPRO VISION S.R.L..pdf",
-            "C:\\Users\\vasil\\Desktop\\UI-Files_crewai\\auction1.pdf",
-            "C:\\Users\\vasil\\Desktop\\UI-Files_crewai\\auction2.pdf",
-            "C:\\Users\\vasil\\Desktop\\UI-Files_crewai\\Licitatie.pdf"
+            "3.Declaratie-privind-eligibilitatea-societatii-in-vederea-acordarii-ajutorului-de-minimis.pdf",
+            "AIPRO VISION S.R.L..pdf",
+            "auction1.pdf",
+            "auction2.pdf",
+            "Licitatie.pdf"
         ]
 
         for i, pdf_path in enumerate(pdf_files, 1):
