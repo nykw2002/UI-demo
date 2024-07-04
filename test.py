@@ -200,17 +200,17 @@ with col1:
         
         # AI team responses with icons
         responses = [
-            ("Agent Management", "Thank you for your input. I'll coordinate with the team to address your request.", "C:\\Users\\vasil\\Desktop\\UI-Files_crewai\\manager-fill.png"),
-            ("AI Researcher", "Based on recent advancements, we can implement a transformer-based model for this task.", "C:\\Users\\vasil\\Desktop\\UI-Files_crewai\\scrape-fill.png"),
-            ("Software Developer", "I'll start working on a prototype using PyTorch. We should have a working model soon.", "C:\\Users\\vasil\\Desktop\\UI-Files_crewai\\suport-fill.png"),
-            ("Technical Writer", "I'll begin drafting the documentation for our new model, including its architecture and usage instructions.", "C:\\Users\\vasil\\Desktop\\UI-Files_crewai\\marketing-fill.png"),
-            ("Agent Management", "Excellent progress, team. Let's schedule a review meeting to discuss the prototype.", "C:\\Users\\vasil\\Desktop\\UI-Files_crewai\\manager-fill.png"),
-            ("AI Researcher", "I've completed the initial analysis. The model shows promising results in early tests.", "C:\\Users\\vasil\\Desktop\\UI-Files_crewai\\scrape-fill.png"),
-            ("Software Developer", "The prototype is ready for testing. I've implemented the core functionalities as discussed.", "C:\\Users\\vasil\\Desktop\\UI-Files_crewai\\suport-fill.png"),
-            ("Technical Writer", "The first draft of the documentation is complete. I'll need input from the team for technical details.", "C:\\Users\\vasil\\Desktop\\UI-Files_crewai\\marketing-fill.png"),
-            ("Agent Management", "Great work, everyone. Let's prepare for a client presentation next week.", "C:\\Users\\vasil\\Desktop\\UI-Files_crewai\\manager-fill.png"),
-            ("AI Researcher", "I've optimized the model further. We're seeing a 15% improvement in performance.", "C:\\Users\\vasil\\Desktop\\UI-Files_crewai\\scrape-fill.png"),
-            ("Software Developer", "I've addressed the feedback from testing. The model is now more robust and efficient.", "C:\\Users\\vasil\\Desktop\\UI-Files_crewai\\suport-fill.png")
+            ("Agent Management", "Thank you for your input. I'll coordinate with the team to address your request.", "manager-fill.png"),
+            ("AI Researcher", "Based on recent advancements, we can implement a transformer-based model for this task.", "scrape-fill.png"),
+            ("Software Developer", "I'll start working on a prototype using PyTorch. We should have a working model soon.", "suport-fill.png"),
+            ("Technical Writer", "I'll begin drafting the documentation for our new model, including its architecture and usage instructions.", "marketing-fill.png"),
+            ("Agent Management", "Excellent progress, team. Let's schedule a review meeting to discuss the prototype.", "manager-fill.png"),
+            ("AI Researcher", "I've completed the initial analysis. The model shows promising results in early tests.", "scrape-fill.png"),
+            ("Software Developer", "The prototype is ready for testing. I've implemented the core functionalities as discussed.", "suport-fill.png"),
+            ("Technical Writer", "The first draft of the documentation is complete. I'll need input from the team for technical details.", "marketing-fill.png"),
+            ("Agent Management", "Great work, everyone. Let's prepare for a client presentation next week.", "manager-fill.png"),
+            ("AI Researcher", "I've optimized the model further. We're seeing a 15% improvement in performance.", "scrape-fill.png"),
+            ("Software Developer", "I've addressed the feedback from testing. The model is now more robust and efficient.", "suport-fill.png")
         ]
         
         for role, message, icon_path in responses:
