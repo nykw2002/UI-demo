@@ -1,12 +1,9 @@
 import streamlit as st
 import pandas as pd
-import time
-from PIL import Image
 import base64
-import random
-import numpy as np
 import plotly.graph_objects as go
-import streamlit.components.v1 as components
+import time
+import random
 
 # Set page config at the very beginning
 st.set_page_config(layout="wide")
@@ -19,14 +16,11 @@ def generate_pastel_color():
     return f"rgb({r},{g},{b})"
 
 # Function to display PDF preview
-def display_pdf(pdf_path):
-    try:
-        with open(pdf_path, "rb") as pdf_file:
-            base64_pdf = base64.b64encode(pdf_file.read()).decode("utf-8")
-        pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="100%" height="800" type="application/pdf"></iframe>'
-        components.html(pdf_display, height=800)
-    except Exception as e:
-        st.error(f"Error reading PDF: {str(e)}")
+def display_pdf(file_path):
+    with open(file_path, "rb") as f:
+        base64_pdf = base64.b64encode(f.read()).decode('utf-8')
+    pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="700" height="1000" type="application/pdf"></iframe>'
+    st.markdown(pdf_display, unsafe_allow_html=True)
 
 # Function to create a message box with unique color and adjusted icon
 def create_message_box(role, message, icon_path):
@@ -63,7 +57,7 @@ def create_message_box(role, message, icon_path):
             """,
             unsafe_allow_html=True
         )
-        time.sleep(0.01)  # Typing speed of 50 milliseconds per character
+        time.sleep(0.05)  # Typing speed of 50 milliseconds per character
 
 # Function to get base64 encoded image
 def get_image_base64(image_path):
