@@ -60,7 +60,7 @@ def create_message_box(role, message, icon_path):
             """,
             unsafe_allow_html=True
         )
-        time.sleep(0.000005)  # Increased typing speed
+        time.sleep(0.1)  # Increased typing speed
 
 # Function to get base64 encoded image
 def get_image_base64(image_path):
