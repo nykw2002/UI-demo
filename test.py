@@ -6,6 +6,7 @@ import base64
 import random
 import numpy as np
 import plotly.graph_objects as go
+import streamlit.components.v1 as components
 
 # Set page config at the very beginning
 st.set_page_config(layout="wide")
@@ -20,8 +21,10 @@ def generate_pastel_color():
 # Function to display PDF preview
 def display_pdf(pdf_path):
     try:
-        st.write(f"PDF: {pdf_path.split('/')[-1]}")
-        st.markdown(f'<iframe src="data:application/pdf;base64,{base64.b64encode(open(pdf_path, "rb").read()).decode()}" width="100%" height="800" type="application/pdf"></iframe>', unsafe_allow_html=True)
+        with open(pdf_path, "rb") as pdf_file:
+            base64_pdf = base64.b64encode(pdf_file.read()).decode("utf-8")
+        pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="100%" height="800" type="application/pdf"></iframe>'
+        components.html(pdf_display, height=800)
     except Exception as e:
         st.error(f"Error reading PDF: {str(e)}")
 
@@ -60,7 +63,7 @@ def create_message_box(role, message, icon_path):
             """,
             unsafe_allow_html=True
         )
-        time.sleep(0.05)  # Typing speed of 50 milliseconds per character
+        time.sleep(0.01)  # Typing speed of 50 milliseconds per character
 
 # Function to get base64 encoded image
 def get_image_base64(image_path):
